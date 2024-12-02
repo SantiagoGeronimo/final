@@ -22,11 +22,14 @@ public class BombBehavior : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             Destroy(hit.gameObject); 
+
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                FindObjectOfType<RespawnManager>().SpawnPlayerIfNeeded();
+            }
         }
 
-        
         Destroy(gameObject);
-        FindObjectOfType<RespawnManager>().SpawnPlayerIfNeeded();
     }
 
     void OnDrawGizmosSelected()
