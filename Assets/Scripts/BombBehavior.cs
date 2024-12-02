@@ -26,6 +26,7 @@ public class BombBehavior : MonoBehaviour
 
         
         Destroy(gameObject);
+        FindObjectOfType<RespawnManager>().SpawnPlayerIfNeeded();
     }
 
     void OnDrawGizmosSelected()

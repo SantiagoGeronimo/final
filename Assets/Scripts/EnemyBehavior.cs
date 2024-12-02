@@ -32,7 +32,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject); 
+            Destroy(collision.gameObject);
+            FindObjectOfType<RespawnManager>().SpawnPlayerIfNeeded();
         }
     }
 
