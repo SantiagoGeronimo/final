@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEditor;
+
 
 public class BombBehavior : MonoBehaviour
 {
     [SerializeField] private float explosionDelay = 3f; 
-    [SerializeField] private float explosionRadius = 6f;
+    [SerializeField] private float explosionRadius;
     [SerializeField] private LayerMask destructibleLayer; 
 
     void Start()
@@ -31,10 +34,5 @@ public class BombBehavior : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
-    }
 }
+
